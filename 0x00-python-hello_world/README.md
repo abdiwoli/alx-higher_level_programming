@@ -1,0 +1,1 @@
+this directory is for python hello world project prepared by abdiwoli
