@@ -5,5 +5,5 @@ for i in range(0, 99):
         init = 0
     else:
         init = ""
-    print("{0}{1}, ".format(init, i), end="");
+    print("{0}{1}, ".format(init, i), end="")
 print(99);
