@@ -14,5 +14,5 @@ for v in range(1, 90):
         continue
     else:
         arr.append(s)
-    print(s, end=", ")
+    print("{0}".format(s), end=", ")
 print(89)
