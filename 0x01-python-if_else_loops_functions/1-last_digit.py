@@ -1,0 +1,7 @@
+#!/usr/bin/python3
+import random
+number = abs(random.randint(-10000, 10000))
+digit = number
+if (digit > 9):
+    digit = digit % 10
+print(f"Last digit of {number} is {digit}")
