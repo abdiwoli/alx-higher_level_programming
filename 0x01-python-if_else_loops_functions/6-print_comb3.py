@@ -1,18 +1,17 @@
 #!/usr/bin/python3
-def chec(s, v):
-    for i in s:
-        if (v[0] in i and v[1] in i):
-            return True
+def chec(v):
+    if (int(v) < 10):
+        return False
+    if (int(v[1] + v[0]) > int(v)):
+        return True
     return False
-arr = []
+
 for v in range(1, 90):
-    if v < 9:
+    if v < 10:
        s = "0" + str(v)
     else:
        s = str(v)
-    if chec(arr, s):
+    if chec(s):
         continue
-    else:
-        arr.append(s)
     print("{0}".format(s), end=", ")
 print(89)
