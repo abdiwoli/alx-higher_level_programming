@@ -5,5 +5,3 @@ for i in "zyxwvutsrqponmlkjihgfedcba":
         i = chr(ord(i) - ord('a') + ord('A'))
     print("{0}".format(i), end="")
     n += 1
-
-        
