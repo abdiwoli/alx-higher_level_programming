@@ -4,6 +4,8 @@ def islower(s):
     if 'a' <= s <= 'z':
         return True
     return False
+
+
 def uppercase(str):
     for i in str:
         if (islower(i)):
