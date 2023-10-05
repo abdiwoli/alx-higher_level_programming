@@ -13,6 +13,6 @@ else:
 print(m)
 i = 1
 for j, i in enumerate(range(1, n)):
-    print("{}: {}".format(j, sys.argv[i]))
+    print("{}: {}".format(j + 1, sys.argv[i]))
 if n > 0:
     print("{}: {}".format(n, sys.argv[n]))
