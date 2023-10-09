@@ -4,7 +4,7 @@ def manage(a):
     while (len(a) < 2):
         if n == 0:
             a = (0, 0)
-        else:
+    else:
             a = (a[0], 0)
     return a
 
