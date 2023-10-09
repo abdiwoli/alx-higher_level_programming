@@ -1,4 +1,8 @@
 #include <Python.h>
+/**
+ * print_python_list_info - function name
+ * @p: list object
+ */
 void print_python_list_info(PyObject *p)
 {
 	int sz, all, n;
@@ -14,5 +18,4 @@ void print_python_list_info(PyObject *p)
 		ob = PyList_GetItem(p, n);
 		printf("%s\n", Py_TYPE(ob)->tp_name);
 	}
-	
 }

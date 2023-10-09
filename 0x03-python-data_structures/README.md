@@ -1,2 +1,2 @@
-read me for 0x03-python-data_structures author abdiwoli
-thanks
+0x03. Python - Data Structures: Lists, Tuples
+abdiwoli
