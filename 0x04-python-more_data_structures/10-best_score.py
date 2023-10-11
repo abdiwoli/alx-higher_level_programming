@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-def best_score(a):
-    if a is None:
+def best_score(a=None):
+    if a is None or not isinstance(a, dict):
         return None
     arr = [i for i in a.keys()]
     big = arr[0]
