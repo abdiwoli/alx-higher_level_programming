@@ -3,7 +3,7 @@ import sys
 if __name__ != "__main__":
     exit()
 
-n = len(sys.argv) -1
+n = len(sys.argv) - 1
 if n == 1:
     m = f"1 argument:"
 elif n == 0:
