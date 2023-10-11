@@ -2,6 +2,8 @@
 def best_score(a=None):
     if a is None or not isinstance(a, dict):
         return None
+    if len(a)  == 0:
+        return None
     arr = [i for i in a.keys()]
     big = arr[0]
 
