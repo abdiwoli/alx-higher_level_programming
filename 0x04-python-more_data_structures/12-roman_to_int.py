@@ -11,5 +11,7 @@ def roman_to_int(roman_string):
     values = [i for i in d.keys()]
     if (roman_string in values):
         return d[roman_string]
-    s = sum(list(map(lambda x: d[x], roman_string)))
-    return s
+    arr = []
+    for i in roman_string:
+        arr.append(d[i])
+    return sum(arr)
