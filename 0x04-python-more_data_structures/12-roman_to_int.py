@@ -1,5 +1,9 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
+    if roman_string is None:
+        return 0
+    if not isinstance(roman_string, str):
+        return 0
     d = {"I": 1, "IV": 4, "IX": 9, "V": 5, "X": 10, "L": 50, "C": 100}
     d.update({"D": 500, "M": 1000})
     d.update({"i": 1, "iv": 4, "v": 5, "ix": 9, "x": 10})
