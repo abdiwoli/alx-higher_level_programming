@@ -1,0 +1,44 @@
+#include "Python.h"
+void print_python_bytes(PyObject *p)
+{
+    if (!PyBytes_Check(p)) {
+        printf("[.] bytes object info\n");
+        printf("  [ERROR] Invalid Bytes Object\n");
+        return;
+    }
+
+    printf("[.] bytes object info\n");
+    printf("  size: %ld\n", ((PyVarObject *)p)->ob_size);
+
+    printf("  trying string: ");
+    for (Py_ssize_t i = 0; i < ((PyVarObject *)p)->ob_size && i < 10; ++i) {
+        printf("%02x ", (unsigned char)((char *)p->ob_type->tp_as_sequence->sq_item(p, i))[0]);
+    }
+    printf("\n");
+}
+
+void print_python_list(PyObject *p)
+{
+    if (!PyList_Check(p)) {
+        printf("[.] Python list info\n");
+        printf("  [ERROR] Invalid List Object\n");
+        return;
+    }
+
+    printf("[*] Python list info\n");
+    printf("[*] Size of the Python List = %ld\n", ((PyVarObject *)p)->ob_size);
+
+    for (Py_ssize_t i = 0; i < ((PyVarObject *)p)->ob_size; ++i) {
+        PyObject *elem = p->ob_type->tp_as_sequence->sq_item(p, i);
+
+        printf("Element %ld: ", i);
+
+        if (PyBytes_Check(elem)) {
+            print_python_bytes(elem);
+        } else if (PyList_Check(elem)) {
+            print_python_list(elem);
+        } else {
+            printf("[.] Unknown type\n");
+        }
+    }
+}
