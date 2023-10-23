@@ -13,5 +13,3 @@ def magic_calculation(a, b):
             break
     return result
 
-# Disassemble the magic_calculation function
-dis.dis(magic_calculation)
