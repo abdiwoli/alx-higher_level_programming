@@ -3,4 +3,5 @@
 
 
 class Square:
+    """ here we difine class properities"""
     pass
