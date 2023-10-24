@@ -44,17 +44,17 @@ class SinglyLinkedList:
         if self.__head is None or value < self.__head.data:
             new_node.next_node = self.__head
             self.__head = new_node
-            return
-        current = self.__head
-        while current.next_node is not None and current.next_node.data < value:
-            current = current.next_node
-            new_node.next_node = current.next_node
-            current.next_node = new_node
+        else:
+            cr = self.__head
+            while cr.next_node is not None and cr.next_node.data < value:
+                cr = cr.next_node
+            new_node.next_node = cr.next_node
+            cr.next_node = new_node
 
     def __str__(self):
         current = self.__head
         elements = []
-        while (current not None):
+        while (current is not None):
             elements.append(str(current.data))
             current = current.next_node
         return "\n".join(elements)
