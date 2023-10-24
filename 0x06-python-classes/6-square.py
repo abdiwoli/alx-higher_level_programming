@@ -21,7 +21,7 @@ class Square:
 
     def my_print(self):
         sz = self.__size
-        if (sz == 0 or self.position[1] > 0):
+        if (self.position[1] > 0):
             print()
         else:
             
