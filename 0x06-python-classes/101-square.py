@@ -21,7 +21,7 @@ class Square:
 
     def my_print(self):
         sz = self.__size
-        if (sz == 0):
+        if sz == 0:
             print()
         else:
             for i in range(self.__position[1]):
@@ -50,3 +50,18 @@ class Square:
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         self.__size = value
+
+    def __str__(self):
+        sz = self.__size
+        if sz == 0:
+            return ""
+        else:
+            st = ""
+            for i in range(self.__position[1]):
+                st += "\n"
+            for i in range(sz):
+                sp = " " * self.__position[0]
+                st += sp + "#" * sz
+                if (i + 1 != sz):
+                    st += "\n"
+            return st
