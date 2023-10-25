@@ -1,22 +1,16 @@
 #!/usr/bin/python3
 """Defines a class MagicClass"""
+
+
 class MagicClass:
     """ here we difine class properities"""
-    def __init__(self, a, b):
-        self.a = a
-        self.b = b
-        self.sum = 0
+    def __init__(self, radius=0):
+        if not isinstance(radius, int) and not isinstance(radius, float):
+            raise TypeError("radius must be a number")
+        self.__radius = radius
 
-    def calculate(self):
-        for n in range(1, 3):
-            try:
-                if n > self.a:
-                    raise Exception("Too far")
-                self.sum += (self.a ** self.b) / n
-            except Exception:
-                self.sum = self.b + self.a
-                break
+    def area(self):
+        return math.pi * self.__radius ** 2
 
-        return self.sum
-
-    
+    def circumference(self):
+        return 2 * math.pi * self.__radius
