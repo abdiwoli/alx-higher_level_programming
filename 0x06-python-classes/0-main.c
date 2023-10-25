@@ -1,4 +1,5 @@
 #!/usr/bin/python3
-Square = __import__('6-square').Square
+MagicClass = __import__('103-magic_class').MagicClass
 
-my_square = Square(3)
+mc = MagicClass(10)
+print("{:.2f}".format(mc.area()))
