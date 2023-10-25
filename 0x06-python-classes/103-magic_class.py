@@ -1,6 +1,8 @@
 #!/usr/bin/python3
+"""Defines a class MagicClass"""
 class MagicClass:
     def __init__(self, a, b):
+        """ here we difine class properities"""
         self.a = a
         self.b = b
         self.sum = 0
@@ -16,3 +18,5 @@ class MagicClass:
                 break
 
         return self.sum
+
+    
