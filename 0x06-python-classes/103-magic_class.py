@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 """Defines a class MagicClass"""
 
-import dis
+
 class MagicClass:
     """ here we difine class properities"""
     def __init__(self, radius=0):
-        self.__radius = 0
-        if type(radius) is not int and type(radius) is float:
+        if not isinstance(radius, int) and not isinstance(radius, float):
             raise TypeError("radius must be a number")
         self.__radius = radius
 
