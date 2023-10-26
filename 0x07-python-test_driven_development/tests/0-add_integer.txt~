@@ -1,0 +1,40 @@
+#!/usr/bin/python3
+# This line is not a test case.
+>>> add_integer = __import__('0-add_integer').add_integer
+
+# Example 1
+>>> add_integer(3, 5)
+8
+
+# Example 2
+>>> add_integer(100.3, -2)
+98.3
+
+# Example 3
+>>> add_integer(7.5, 2.5)
+10
+
+# Example 4
+>>> add_integer(3)
+101
+
+# Example 5
+>>> add_integer(-3, -5)
+-8
+
+# Example 6
+>>> add_integer(4.5, -2)
+2.5
+
+# Example 7
+>>> add_integer("hello", 5)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer or float
+
+# Example 8
+>>> add_integer(7.5)
+105.5
+# Example 9
+>>> add_integer(0, 0)
+0
