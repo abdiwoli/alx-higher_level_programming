@@ -8,7 +8,7 @@
 
 # Example 2
 >>> add_integer(100.3, -2)
-98.3
+98
 
 # Example 3
 >>> add_integer(7.5, 2.5)
@@ -24,7 +24,7 @@
 
 # Example 6
 >>> add_integer(4.5, -2)
-2.5
+2
 
 # Example 7
 >>> add_integer("hello", 5)
@@ -34,7 +34,7 @@ TypeError: a must be an integer or float
 
 # Example 8
 >>> add_integer(7.5)
-105.5
+105
 # Example 9
 >>> add_integer(0, 0)
 0
