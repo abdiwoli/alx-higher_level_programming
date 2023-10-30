@@ -13,7 +13,7 @@ class Rectangle:
             width (int): The width of the rectangle.
             height (int): The height of the rectangle.
         """
-        if self.errors(width) and self.errors(height):
+        if self.errors(width, "width") and self.errors(height, "height"):
             self.__width = width
             self.__height = height
 
@@ -35,7 +35,7 @@ class Rectangle:
         Args:
             value (int): The new height of the rectangle.
         """
-        if self.errors(value):
+        if self.errors(value, "height"):
             self.__height = value
 
     @property
@@ -56,10 +56,10 @@ class Rectangle:
         Args:
             value (int): The new width of the rectangle.
         """
-        if self.errors(value):
+        if self.errors(value, "width"):
             self.__width = value
 
-    def errors(self, value):
+    def errors(self, value, v):
         """
         Check if the value is a valid integer for width and height.
 
@@ -70,11 +70,17 @@ class Rectangle:
 
         Returns:
             bool: True if the value is valid, False if it's not.
+
+        Raise:
+            TypeError: width must be an integer
+            ValueError: must be >= 0
         """
-        if not isinstance(value, int):
-            print("Error: Width and height must be integers")
-            return False
-        elif value < 0:
-            print("Error: Width and height must be >= 0")
+        try:
+            if not isinstance(value, int):
+                raise TypeError("{} must be an integer".format(v))
+            elif value < 0:
+                raise TypeError("{} must be >= 0".format(v))
+        except Exception as e:
+            print(e)
             return False
         return True
