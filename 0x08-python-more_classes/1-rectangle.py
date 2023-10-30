@@ -1,3 +1,7 @@
+#!/usr/bin/python2
+"""Class Rectangle """
+
+
 class Rectangle:
     """A class to represent a rectangle with private instance ."""
 
