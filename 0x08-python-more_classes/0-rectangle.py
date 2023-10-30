@@ -1,7 +1,10 @@
-#!usr/bin/python3
+#!/usr/bin/python3
+"""class Rectngle atributes
+"""
 
-""" define class Rectngle"""
 
 class Rectangle:
-    """ define class Rectngle"""
+    """class Rectngle atributes
+     """
+
     pass
