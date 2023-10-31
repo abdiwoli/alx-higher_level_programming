@@ -1,0 +1,30 @@
+"""
+This file contains tests for the say_my_name function.
+======================================================
+
+First import say_my_name from the 3-say_my_name module:
+-------------------------------------------------------
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+>>> from io import StringIO
+>>> import sys
+
+>>> def capture_output(fn, *args):
+...     captured_output = StringIO()
+...     sys.stdout = captured_output
+...     try:
+...         fn(*args)
+...         return captured_output.getvalue().strip()
+...     finally:
+...         captured_output.close()
+...         sys.stdout = sys.__stdout__
+
+>>> actual_output = capture_output(say_my_name, "abdiwoli", "hassen")
+>>> assert actual_output.startswith('My name is abdiwoli hassen')
+
+>>> actual_output = capture_output(say_my_name, "abdiwoli")
+>>> assert actual_output.startswith('My name is abdiwoli')
+
+
+"""
