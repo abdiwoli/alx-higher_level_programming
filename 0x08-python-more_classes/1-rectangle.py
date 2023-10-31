@@ -84,6 +84,7 @@ class Rectangle:
                 error = "[ValueError]: "
                 raise TypeError("{} must be >= 0".format(v))
         except Exception as e:
-            print(error + str(e))
+            with open(2, 'w') as stderr:
+                print(error + str(e), file=stderr)
             return False
         return True
