@@ -75,12 +75,15 @@ class Rectangle:
             TypeError: width must be an integer
             ValueError: must be >= 0
         """
+        error = ""
         try:
             if not isinstance(value, int):
+                error = "[TypeError]: "
                 raise TypeError("{} must be an integer".format(v))
             elif value < 0:
+                error = "[ValueError]: "
                 raise TypeError("{} must be >= 0".format(v))
         except Exception as e:
-            print(e)
+            print(error + str(e))
             return False
         return True
