@@ -13,8 +13,10 @@ class Rectangle:
             width (int): The width of the rectangle.
             height (int): The height of the rectangle.
         """
-        if self.errors(width, "width") and self.errors(height, "height"):
+        flag = 1
+        if self.errors(width, "width"):
             self.__width = width
+        if self.errors(height, "height"):
             self.__height = height
 
     @property
@@ -84,7 +86,6 @@ class Rectangle:
                 error = "[ValueError]: "
                 raise TypeError("{} must be >= 0".format(v))
         except Exception as e:
-            with open(2, 'w') as stderr:
-                print(error + str(e), file=stderr)
+            print(error + str(e))
             return False
         return True
