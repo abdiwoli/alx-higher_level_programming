@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+""" function adds two integers"""
+
+
 def add_integer(a, b=98):
     """
     Adds two integers or floats and returns the result.
@@ -24,8 +27,8 @@ def add_integer(a, b=98):
         a must be an integer or float
 
     """
-    if a is None or not isinstance(a, (int, float)):
+    if not isinstance(a, (int, float)) or a != a:
         raise TypeError("a must be an integer")
-    if not isinstance(b, (int, float)):
+    if not isinstance(b, (int, float)) or b != b:
         raise TypeError("b must be an integer")
     return int(a) + int(b)

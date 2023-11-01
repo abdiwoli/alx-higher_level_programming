@@ -16,6 +16,14 @@ First import add_integer from the 0-add_integer:
 >>> add_integer(-2, 4)
 2
 
+>>> add_integer(float("nan"), 4) #doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(5, float("nan")) #doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+TypeError: b must be an integer
+
 >>> add_integer(2, None) #doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
 TypeError: b must be an integer
