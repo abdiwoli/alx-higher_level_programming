@@ -1,11 +1,4 @@
-"""
-This file contains tests for the say_my_name function.
-======================================================
 
-First import say_my_name from the 3-say_my_name module:
--------------------------------------------------------
-
->>> say_my_name = __import__('3-say_my_name').say_my_name
 
 >>> from io import StringIO
 >>> import sys
@@ -25,12 +18,6 @@ First import say_my_name from the 3-say_my_name module:
 
 >>> actual_output = capture_output(say_my_name, "abdiwoli")
 >>> assert actual_output.startswith('My name is abdiwoli')
-In this format, I've used assert statements to check if the actual output starts with the expected output. This approach allows for some flexibility in handling potential differences in trailing white space or formatting in the printed output.
-
-Please try this updated format, and it should help the doctests pass, even if there are minor differences in the printed output.
-
-
-
 
 >>> capture_output(say_my_name, 6, "hassen") #doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
