@@ -2,7 +2,7 @@
 """class lock"""
 
 class LockedClass:
-    """ class lock ""
+    """ class lock """
 
     def __setattr__(self, name, value):
         if hasattr(self, name) or name == "first_name":
