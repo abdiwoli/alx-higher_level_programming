@@ -5,7 +5,10 @@
 class MyInt(int):
     """class Myint"""
     def __eq__(self, other):
-        return super().__eq__(other)
+        if isinstance(other, int):
+            return self == int
+        return False
 
     def __ne__(self, other):
-        return not super().__eq__(other)
+        if isinstance(other, int):
+            return not (self == other)
