@@ -9,4 +9,4 @@ class MyList(list):
         """ funtion print_sorted
         prints list sored
         """
-        print(sorted(self))
+        print(sorted(list(self)))
