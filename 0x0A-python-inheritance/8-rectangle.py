@@ -20,6 +20,7 @@ class BaseGeometry:
             raise TypeError(f"{name} must be an integer")
 
 class Rectangle(BaseGeometry):
+    """class Rectangle"""
     def __init__(self, width=0, height=0):
         self.integer_validator("width", width)
         self.integer_validator("height", height)
