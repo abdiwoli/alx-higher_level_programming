@@ -6,7 +6,7 @@ def is_kind_of_class(obj, a_class):
     """
     Args:
         obj: The object to be checked.
-        a_class: The class to compare the object's instance 
+        a_class: The class to compare the object's instance
 
     Returns:
         bool: True or False
