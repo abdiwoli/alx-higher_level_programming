@@ -8,4 +8,8 @@ modules
 
 class BaseGeometry:
     """document BaseGeometry"""
-    pass
+
+    def area(self):
+        """aread public method"""
+        raise Exception("area() is not implemented")
+
