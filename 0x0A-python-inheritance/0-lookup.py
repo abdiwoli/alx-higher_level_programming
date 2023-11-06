@@ -11,4 +11,4 @@ def lookup(obj):
     Return:
         return: list
      """
-    return [i for i in obj.__dict__]
+    return [i for i in dir(obj)]
