@@ -17,8 +17,7 @@ def print_metrics():
         count = status_code_counts[status_code]
         if count != 0:
             print(f"{status_code}: {count}")
-        # Reset the count to 0
-        status_code_counts[status_code] = 0
+        
 
 
 # Function to handle keyboard interruption (CTRL + C)
