@@ -1,0 +1,10 @@
+#!/usr/bin/python3
+"""importing modules section"""
+
+
+def read_file(filename=""):
+    with open(filename, "r") as file:
+        for line in file:
+            print(line)
+
+read_file("my_file.txt")
