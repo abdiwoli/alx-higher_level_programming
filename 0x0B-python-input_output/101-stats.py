@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-
+import time
 import sys
 import signal
+import random
 from collections import defaultdict
 
 total_file_size = 0
@@ -44,7 +45,9 @@ for line in sys.stdin:
 
     if line_count % 10 == 0:
         print_metrics()
-        line_count = 0
+
+    random_sleep = random.random()
+    time.sleep(random_sleep)
 
 # Print the final metrics
 print_metrics()
