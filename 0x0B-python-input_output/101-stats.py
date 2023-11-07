@@ -1,49 +1,41 @@
 #!/usr/bin/python3
-"""file name"""
+"""Log parsing script."""
 import sys
-import signal
-from collections import defaultdict
+
+total_size = 0
+codes = {'200': 0, '301': 0, '400': 0, '401': 0,
+         '403': 0, '404': 0, '405': 0, '500': 0}
+iteration = 0
 
 
-total_file_size = 0
-status_code_counts = defaultdict(int)
+def print_stats():
+    """Function that prints a resume of the stats."""
+    print("File size: {}".format(total_size))
+    for k, v in sorted(codes.items()):
+        if v is not 0:
+            print("{}: {}".format(k, v))
 
 
-# Define a function to print metrics
-def print_metrics():
-    """function doc"""
-    print("File size:", total_file_size)
-    for status_code in sorted(status_code_counts.keys()):
-        count = status_code_counts[status_code]
-        if count != 0:
-            print(f"{status_code}: {count}")
-        # Reset the count to 0
-        status_code_counts[status_code] = 0
+try:
+    for line in sys.stdin:
+        line = line.split()
+        if len(line) >= 2:
+            tmp = iteration
+            if line[-2] in codes:
+                codes[line[-2]] += 1
+                iteration += 1
+            try:
+                total_size += int(line[-1])
+                if tmp == iteration:
+                    iteration += 1
+            except:
+                if tmp == iteration:
+                    continue
 
+        if iteration % 10 == 0:
+            print_stats()
 
-# Function to handle keyboard interruption (CTRL + C)
-def handle_interrupt(signal, frame):
-    """function """
-    print_metrics()
-    sys.exit(0)
+    print_stats()
 
-
-# Set up the interrupt signal handler
-signal.signal(signal.SIGINT, handle_interrupt)
-
-line_count = 0
-
-# Process lines from stdin
-for line in sys.stdin:
-    line_count += 1
-    parts = line.split()
-    if len(parts) >= 8:
-        status_code = parts[-2]
-        file_size = int(parts[-1])
-
-        # Update metrics
-        total_file_size += file_size
-        status_code_counts[status_code] += 1
-
-    if line_count % 10 == 0:
-        print_metrics()
+except KeyboardInterrupt:
+    print_stats()
