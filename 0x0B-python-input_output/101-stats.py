@@ -7,6 +7,7 @@ from collections import defaultdict
 total_file_size = 0
 status_code_counts = defaultdict(int)
 
+
 # Define a function to print metrics
 def print_metrics():
     print("File size:", total_file_size)
@@ -17,10 +18,12 @@ def print_metrics():
         # Reset the count to 0
         status_code_counts[status_code] = 0
 
+
 # Function to handle keyboard interruption (CTRL + C)
 def handle_interrupt(signal, frame):
     print_metrics()
     sys.exit(0)
+
 
 # Set up the interrupt signal handler
 signal.signal(signal.SIGINT, handle_interrupt)
