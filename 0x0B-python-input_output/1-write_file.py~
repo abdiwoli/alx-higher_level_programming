@@ -1,0 +1,21 @@
+#!/usr/bin/python3
+"""importing modules section"""
+
+
+def write_file(filename="", text=""):
+    """function writes to a file and returns the character count"""
+    with open(filename, "w") as file:
+        file.write(text)
+
+    # Open the file in read mode and count the characters in its content
+    with open(filename, "r") as file:
+        content = file.read()
+        print("Content of the file:", content)  # Debugging output
+        return len(content)
+
+nb_characters = write_file("my_first_file.txt", "This School is so cool!\n")
+print("Character count:", nb_characters)
+
+nb_characters = write_file("my_first_file.txt", "This School is so cool!\n")
+print(nb_characters)
+
