@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""classStudent"""
+"""class student"""
 
 
 class Student:
@@ -10,10 +10,6 @@ class Student:
         self.age = age
 
     def to_json(self, attrs=None):
-        """
-        Retrieves a dictionary representation of a Student instance.
-        Otherwise, all attributes are retrieved.
-        """
         if attrs is None:
             return self.__dict__
         else:
@@ -22,3 +18,7 @@ class Student:
                 if hasattr(self, attr):
                     result[attr] = getattr(self, attr)
             return result
+
+    def reload_from_json(self, json):
+        for key, value in json.items():
+            setattr(self, key, value)
