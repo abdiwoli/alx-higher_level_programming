@@ -1,0 +1,13 @@
+add_attribute = __import__('101-add_attribute').add_attribute
+try:
+    s = "Hello, World!"
+    add_attribute(s, "hbtn", "Holberton")  # No error
+    print(s.hbtn)  # This will print "Holberton"
+except TypeError as e:
+    print("[{}] {}".format(e.__class__.__name__, e))
+
+try:
+    a = 9
+    add_attribute(a, "hbtn", "Holberton")  # This will raise a TypeError
+except TypeError as e:
+    print("[{}] {}".format(e.__class__.__name__, e))
