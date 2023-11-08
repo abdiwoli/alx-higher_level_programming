@@ -43,7 +43,7 @@ for line in sys.stdin:
         total_file_size += file_size
         status_code_counts[status_code] += 1
 
-    if line_count % 10 == 0:
+    if line_count % 11 == 0:
         print_metrics()
 
     random_sleep = random.random()
