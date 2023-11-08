@@ -14,7 +14,7 @@ def print_metrics():
     print("File size:", total_file_size)
     for status_code in sorted(status_code_counts.keys()):
         count = status_code_counts[status_code]
-        if count != 0:
+        if count != 0 and status_code.isdigit():
             print(f"{status_code}: {count}")
         # Reset the count to 0
 
@@ -28,7 +28,6 @@ def handle_interrupt(signal, frame):
         for _ in range(10 - remainder):
             print_metrics()
     sys.exit(0)
-    
 
 
 # Set up the interrupt signal handler
@@ -40,6 +39,8 @@ line_count = 0
 for line in sys.stdin:
     line_count += 1
     parts = line.split()
+    if len(parts) < 7:
+        continue
     if len(parts) >= 8:
         status_code = parts[-2]
         file_size = int(parts[-1])
