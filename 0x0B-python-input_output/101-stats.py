@@ -17,13 +17,18 @@ def print_metrics():
         if count != 0:
             print(f"{status_code}: {count}")
         # Reset the count to 0
-        status_code_counts[status_code] = 0
 
 
 # Function to handle keyboard interruption (CTRL + C)
+# Function to handle keyboard interruption (CTRL + C)
 def handle_interrupt(signal, frame):
-    print_metrics()
+    # Ensure line_count is a multiple of 10
+    remainder = line_count % 10
+    if remainder != 0:
+        for _ in range(10 - remainder):
+            print_metrics()
     sys.exit(0)
+    
 
 
 # Set up the interrupt signal handler
@@ -43,7 +48,7 @@ for line in sys.stdin:
         total_file_size += file_size
         status_code_counts[status_code] += 1
 
-    if line_count % 11 == 0:
+    if line_count % 10 == 0:
         print_metrics()
 
     random_sleep = random.random()
