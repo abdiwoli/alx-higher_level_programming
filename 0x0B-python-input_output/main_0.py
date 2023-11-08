@@ -2,6 +2,6 @@
 append_after = __import__('100-append_after').append_after
 
 filename = "file_0"
-text_search = "Python"
+text_search = "c is fun"
 text_append = "Python is cool!\n"
 append_after(filename, text_search, text_append)

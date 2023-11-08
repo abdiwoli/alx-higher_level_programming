@@ -12,7 +12,6 @@ def append_after(filename="", search_string="", new_string=""):
             if search_string in line and a:
                 lines.append(line)
                 lines.append(new_string)
-                a = False
             else:
                 lines.append(line)                
 
