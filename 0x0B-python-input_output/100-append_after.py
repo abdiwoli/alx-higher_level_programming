@@ -6,21 +6,15 @@ def append_after(filename="", search_string="", new_string=""):
     """append function"""
     with open(filename, "r") as file:
         lines = []
-        append_next_line = False
-
+        a = True
+        
         for line in file:
-            if append_next_line:
-                # Append the new string after the next comma
-                index = line.find(',')
-                if index != -1:
-                    line = line[:index + 1] + new_string + line[index + 1:]
-
-                append_next_line = False
-
-            lines.append(line)
-
-            if search_string in line:
-                append_next_line = True
+            if search_string in line and a:
+                lines.append(line)
+                lines.append(new_string)
+                a = False
+            else:
+                lines.append(line)                
 
     with open(filename, "w") as file:
         file.writelines(lines)
