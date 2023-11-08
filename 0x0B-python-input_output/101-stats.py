@@ -39,12 +39,13 @@ line_count = 0
 for line in sys.stdin:
     line_count += 1
     parts = line.split()
-    if len(parts) < 7:
-        continue
-    if len(parts) >= 8:
-        status_code = parts[-2]
-        file_size = int(parts[-1])
 
+    if len(parts) >= 8:
+        if parts[-2].isdigit():
+            status_code = parts[-2]
+        else:
+            total_file_size += 1000
+        file_size = int(parts[-1])
         # Update metrics
         total_file_size += file_size
         status_code_counts[status_code] += 1
