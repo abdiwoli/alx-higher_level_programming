@@ -1,0 +1,48 @@
+#!/usr/bin/python3
+""" models/rectangle.py """
+from models.base import Base
+
+
+class Rectangle(Base):
+    """A class representing a rectangle."""
+
+    def __init__(self, width, height, x=0, y=0, id=None):
+        """
+        Initialize a rectangle.
+
+        Args:
+            width (int): The width of the rectangle.
+            height (int): The height of the rectangle.
+            x (int): The x-coordinate of the rectangle's position.
+            y (int): The y-coordinate of the rectangle's position.
+            id (int): The identifier of the rectangle.
+        """
+        self.validate(width, "width", 1, "must be > 0")
+        self.__width = width
+        self.validate(height, "height", 1, "must be > 0")
+        self.__height = height
+        self.validate(x, "x", 0)
+        self.__x = x
+        self.validate(y, "y", 0)
+        self.__y = y
+        super().__init__(id)
+
+    @staticmethod
+    def validate(number, name, flag=0, m="must be >= 0"):
+        """
+        Validate that a number is an integer and satisfies a condition.
+
+        Args:
+            number: The number to validate.
+            name (str): The name of the property being validated.
+            flag (int): The condition the number must satisfy.
+            m (str): Additional information about the condition.
+
+        Raises:
+            TypeError: If the number is not an integer.
+            ValueError: If the number does not satisfy the condition.
+        """
+        if not isinstance(number, int):
+            raise TypeError(f"{name} must be an integer")
+        if number < flag:
+            raise ValueError(f"{name} {m}
