@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-"""rectangle.py"""
+""" models/rectangle.py """
 from models.base import Base
 
 
 class Rectangle(Base):
+    """ class  Rectangle """
+
     def __init__(self, width, height, x=0, y=0, id=None):
         self.validate(width, "width", 1, "must be > 0")
         self.__width = width
