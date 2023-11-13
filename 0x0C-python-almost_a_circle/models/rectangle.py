@@ -7,6 +7,8 @@ class Rectangle(Base):
     """ class  Rectangle """
 
     def __init__(self, width, height, x=0, y=0, id=None):
+        """init class """
+
         self.validate(width, "width", 1, "must be > 0")
         self.__width = width
         self.validate(height, "height", 1, "must be > 0")
