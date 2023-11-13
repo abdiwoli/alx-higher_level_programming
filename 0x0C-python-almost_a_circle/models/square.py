@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""models/square.py"""
+""" models/square.py """
 from models.rectangle import Rectangle
 
 
