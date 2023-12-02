@@ -13,8 +13,10 @@ class Rectangle:
             width (int): The width of the rectangle.
             height (int): The height of the rectangle.
         """
-        if self.errors(width, "width") and self.errors(height, "height"):
+        flag = 1
+        if self.errors(width, "width"):
             self.__width = width
+        if self.errors(height, "height"):
             self.__height = height
 
     @property
@@ -75,20 +77,8 @@ class Rectangle:
             TypeError: width must be an integer
             ValueError: must be >= 0
         """
-        try:
-            if not isinstance(value, int):
-                raise TypeError("{} must be an integer".format(v))
-            elif value < 0:
-                raise TypeError("{} must be >= 0".format(v))
-        except Exception as e:
-            print(e)
-            return False
+        if not isinstance(value, int):
+            raise TypeError("{} must be an integer".format(v))
+        elif value < 0:
+            raise ValueError("{} must be >= 0".format(v))
         return True
-
-    def area(self):
-        return self.__width * self.__height
-
-    def perimeter(self):
-        if (self.__height < 1):
-            return self.__width
-        return 2 * (self.__width + self.__height)
