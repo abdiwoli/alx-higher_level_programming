@@ -13,10 +13,8 @@ class Rectangle:
             width (int): The width of the rectangle.
             height (int): The height of the rectangle.
         """
-        flag = 1
-        if self.errors(width, "width"):
+        if self.errors(width, "width") and self.errors(height, "height"):
             self.__width = width
-        if self.errors(height, "height"):
             self.__height = height
 
     @property
@@ -82,3 +80,20 @@ class Rectangle:
         elif value < 0:
             raise ValueError("{} must be >= 0".format(v))
         return True
+
+    def area(self):
+        return self.__width * self.__height
+
+    def perimeter(self):
+        return (2 * self.__width + 2 * self.__height)
+
+    def __str__(self):
+        s = ""
+        for i in range(self.__height):
+            for h in range(self.width):
+                s += "#"
+            if (i != self.__height -1 ):
+                s += "\n"
+        return s
+
+
