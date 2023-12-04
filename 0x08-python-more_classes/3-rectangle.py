@@ -89,11 +89,11 @@ class Rectangle:
 
     def __str__(self):
         s = ""
+        if self.__width == 0:
+            return ""
         for i in range(self.__height):
             for h in range(self.width):
                 s += "#"
-            if (i != self.__height -1 ):
+            if (i != self.__height - 1):
                 s += "\n"
         return s
-
-
