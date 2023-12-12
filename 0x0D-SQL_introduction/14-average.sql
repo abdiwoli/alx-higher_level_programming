@@ -1,2 +1,2 @@
 -- avarege
-SELECt AVERAGE(score) FROM second_table
+SELECt AVG(score) FROM second_table
