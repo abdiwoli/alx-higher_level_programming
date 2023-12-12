@@ -1,2 +1,2 @@
 -- select all
-SELECT * FROM hbtn_0c_0;
+SHOW IF EXISTS first_table;
