@@ -1,2 +1,2 @@
 -- select all
-SHOW IF EXISTS first_table;
+SHOW TABLE IF EXISTS first_table;
