@@ -8,4 +8,3 @@ def new_in_list(my_list, idx, element):
         else:
             new_arr.append(my_list[i])
     return new_arr
-

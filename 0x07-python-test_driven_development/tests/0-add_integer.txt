@@ -1,0 +1,43 @@
+"""
+This file contains tests for the matrix_divided function.
+======================================================
+
+First import add_integer from the 0-add_integer:
+-------------------------------------------------------
+>>> add_integer = __import__('0-add_integer').add_integer
+
+
+>>> add_integer(2, 4)
+6
+
+>>> add_integer(2)
+100
+
+>>> add_integer(-2, 4)
+2
+
+>>> add_integer(float("nan"), 4) #doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(5, float("nan")) #doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer(2, None) #doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer(None, 8) #doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(2, "abdi") #doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer("y", 9) #doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+"""

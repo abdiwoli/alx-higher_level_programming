@@ -1,0 +1,6 @@
+-- lis all table of databse
+-- 3-list_tables.sql
+USE `$$DB_NAME$$`;
+SELECT *
+FROM information_schema.tables
+WHERE table_schema = DATABASE();

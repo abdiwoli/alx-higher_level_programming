@@ -1,0 +1,85 @@
+#!/usr/bin/python3
+"""tests/test_1.py"""
+import unittest
+from models.square import Square
+from unittest.mock import patch
+from io import StringIO
+from models.base import Base
+import json
+
+
+class Test_class2(unittest.TestCase):
+    """class test2"""
+
+    def test_square_id(self):
+        s15 = Square(5)
+        self.assertEqual(s15.id, 15)
+
+    def test_squares(self):
+        s16 = Square(3, 4)
+        self.assertEqual(s16.width, 3)
+        self.assertEqual(s16.id, 16)
+
+    def test_squares_display(self):
+        s17 = Square(3, 3)
+        self.assertEqual(s17.id, 17)
+
+    def test_invalid_size(self):
+        with self.assertRaises(ValueError) as e:
+            Square(-3, 4)
+
+        m = "width must be > 0"
+        self.assertEqual(str(e.exception), m)
+
+    def test_squares_square_output(self):
+        s18  = Square(5)
+        exp = f"[Square] ({s18.id}) 0/0 - 5\n"
+        with patch("sys.stdout", new_callable=StringIO) as st:
+            print(s18)
+            actual = st.getvalue()
+        self.assertEqual(s18.id, 18)
+        self.assertEqual(actual, exp)
+
+    def test_update(self):
+        s = Square(5, 3, 3, 90)
+        exp = "[Square] (90) 3/3 - 5\n"
+        with patch('sys.stdout', new_callable=StringIO) as stout:
+            print(s)
+            actual = stout.getvalue()
+        self.assertEqual(actual, exp)
+        with patch('sys.stdout', new_callable=StringIO) as stout:
+            s.update(89, 2)
+            print(s)
+            actual = stout.getvalue()
+        exp = "[Square] (89) 3/3 - 2\n"
+        self.assertEqual(actual, exp)
+
+    def test_dictionary(self):
+        s = Square(10, 2, 1, 10)
+        exp = "[Square] (10) 2/1 - 10\n"
+        with patch('sys.stdout', new_callable=StringIO) as stout:
+            print(s)
+            actual = stout.getvalue()
+        self.assertEqual(actual, exp)
+        actual = s.to_dictionary()
+        exp = {'x': 2, 'y': 1, 'id': 10, 'size': 10}
+        self.assertEqual(actual, exp)
+
+    def test_json(self):
+        s = Square(10, 7, 2, 300)
+        dictionary = s.to_dictionary()
+        d = {'size': 10, 'id': 300, 'x': 7, 'y': 2}
+        self.assertEqual(d, dictionary)
+        json_dictionary = Base(300).to_json_string([dictionary])
+        exp = '[{"x": 7, "size": 10, "id": 300, "y": 2}]'
+        j1, j2 = json.loads(exp), json.loads(json_dictionary)
+        self.assertEqual(j1, j2)
+
+
+    def test_x(self):
+        s = Square(20, 30, 200, 800)
+        self.assertEqual(s.x, 30)
+
+    def test_y(self):
+        s = Square(20, 20, 200, 801)
+        self.assertEqual(s.y, 200)

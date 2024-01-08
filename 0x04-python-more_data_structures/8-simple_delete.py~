@@ -1,0 +1,9 @@
+#!/usr/bin/python3
+def simple_delete(a, key=""):
+    d = dict()
+    for i in a:
+        if i == key:
+            continue
+        else:
+            d.get(i, a[i])
+    return d
