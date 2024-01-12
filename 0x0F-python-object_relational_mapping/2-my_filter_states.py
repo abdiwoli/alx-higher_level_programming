@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" list all states order by id"""
+"""search stste """
 import MySQLdb
 import sys
 
