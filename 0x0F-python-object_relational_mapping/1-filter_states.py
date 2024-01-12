@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-11;rgb:0000/0000/0000""" list all states order by id"""
+""" list all states order by id"""
 import MySQLdb
 import sys
 
