@@ -13,5 +13,5 @@ if __name__ == "__main__":
                           passwd=passw, db=db)
     cur = con.cursor()
     n = cur.execute("SELECT * FROM states ORDER BY id;")
-    for i in range(5):
+    for i in range(n):
         print(cur.fetchone())
