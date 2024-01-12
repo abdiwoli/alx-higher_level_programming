@@ -4,7 +4,7 @@ import MySQLdb
 import sys
 
 
-if __name__ == "__main__":
+if __name__ == "__main__" and len(sys.argv) == 4:
     user = sys.argv[1]
     passw = sys.argv[2]
     db = sys.argv[3]
