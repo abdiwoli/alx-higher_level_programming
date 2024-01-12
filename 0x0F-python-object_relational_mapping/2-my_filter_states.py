@@ -13,7 +13,7 @@ if __name__ == "__main__":
                           port=3306, user=user,
                           passwd=passw, db=db)
     cur = con.cursor()
-    q = f"SELECT * FROM states WHERE name = '{search}' ORDER BY id;"
+    q = "SELECT * FROM states WHERE name = '{}' ORDER BY id;".format(search)
     cur.execute(q)
     row = cur.fetchone()
     while row:
