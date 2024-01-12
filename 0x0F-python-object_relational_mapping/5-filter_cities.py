@@ -13,11 +13,11 @@ if __name__ == "__main__" and len(sys.argv) == 5:
                           port=3306, user=user,
                           passwd=passw, db=db)
     cur = con.cursor()
-    qr = "SELECT cities.id, cities.name, states.name FROM cities JOIN"
+    qr = "SELECT cities.name FROM cities JOIN"
     qr += " states ON cities.state_id = states.id"
     qr += " WHERE states.name = %s ORDER BY cities.id;"
     cur.execute(qr, (state, ))
 
-    results = cur.fetchall()
-    for row in results:
-        print(row)
+    print(", ".join(map(lambda x: x[0], cur.fetchall())))
+    cur.close()
+    con.close()
