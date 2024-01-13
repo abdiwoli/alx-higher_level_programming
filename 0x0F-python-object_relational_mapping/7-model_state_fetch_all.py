@@ -18,5 +18,5 @@ if __name__ == "__main__":
 
     result = engine.execute(q)
 
-    for i in result:
-        print(i)
+    for i, v in result:
+        print(f"{i}: {v}")
