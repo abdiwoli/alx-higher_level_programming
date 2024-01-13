@@ -20,7 +20,7 @@ if __name__ == "__main__":
     sn = sn()
     state = sn.query(State).order_by(State.id).filter_by(name=name).first()
     if state:
-        print(state.id)
+        print(f"{state.id}: {state.name}")
     else:
         print("Not found")
     sn.close()
