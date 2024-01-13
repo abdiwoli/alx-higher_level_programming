@@ -17,6 +17,6 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     sn = sessionmaker(bind=engine)
     sn = sn()
-    for state in sn.query(State).order_by(State.id).all():
-        print(f"{state.id}: {state.name}")
+    state =  sn.query(State).order_by(State.id).first()
+    print(f"{state.id}: {state.name}")
     sn.close()
