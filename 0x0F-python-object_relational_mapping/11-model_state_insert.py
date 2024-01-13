@@ -12,15 +12,13 @@ if __name__ == "__main__":
     us = sys.argv[1]
     ps = sys.argv[2]
     db = sys.argv[3]
-    name = sys.argv[4]
     p = 'mysql+mysqldb://{}:{}@localhost/{}'.format(us, ps, db)
     engine = create_engine(p, pool_pre_ping=True)
     Base.metadata.create_all(engine)
     sn = sessionmaker(bind=engine)
     sn = sn()
-    state = sn.query(State).order_by(State.id).filter_by(name=name).first()
-    if state:
-        print(f"{state.id}: {state.name}")
-    else:
-        print("Not found")
+    state = State(name="Louisiana")
+    sn.add(state)
+    sn.commit()
+    print(state.id)
     sn.close()
