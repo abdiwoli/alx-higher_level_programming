@@ -3,9 +3,11 @@
 """
 import sys
 from model_state import Base, State
-
-from sqlalchemy import create_engine, text
+import warnings
+from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
+
+warnings.filterwarnings("ignore", category=DeprecationWarning, module="create_engine")
 
 
 if __name__ == "__main__":
@@ -16,5 +18,7 @@ if __name__ == "__main__":
     engine = create_engine(p, pool_pre_ping=True)
     Base.metadata.create_all(engine)
     sn = sessionmaker(bind=engine)
-    for state in sn().query(State).all():
-        print(f"{state.id:} {state.name}")
+    sn = sn()
+    for state in sn.query(State).order_by(State.id).all():
+        print(f"{state.id}: {state.name}")
+    sn.close()
