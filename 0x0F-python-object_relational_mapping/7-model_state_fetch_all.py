@@ -5,6 +5,7 @@ import sys
 from model_state import Base, State
 
 from sqlalchemy import create_engine, text
+from sqlalchemy.orm import sessionmaker
 
 
 if __name__ == "__main__":
@@ -13,10 +14,7 @@ if __name__ == "__main__":
     db = sys.argv[3]
     p = 'mysql+mysqldb://{}:{}@localhost/{}'.format(us, ps, db)
     engine = create_engine(p, pool_pre_ping=True)
-
-    q = text("SELECT * FROM states ORDER BY id;")
-
-    result = engine.execute(q)
-
-    for i, v in result:
-        print(f"{i}: {v}")
+    Base.metadata.create_all(engine)
+    sn = sessionmaker(bind=engine)
+    for state in sn().query(State).all():
+        print(f"{state.id:} {state.name}")
