@@ -13,7 +13,7 @@ if __name__ == "__main__" and len(sys.argv) == 5:
                           port=3306, user=user,
                           passwd=passw, db=db)
     cur = con.cursor()
-    query = "SELECT * FROM states WHERE name COLLATE utf8mb4_bin = %s ORDER BY id;"
+    query = "SELECT * FROM states WHERE name COLLATE utf8mb4_bin = {} ORDER BY id;".format("%s")
 
     cur.execute(query, (search,))
     row = cur.fetchone()
