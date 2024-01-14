@@ -17,8 +17,8 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     sn = sessionmaker(bind=engine)
     sn = sn()
-    st = State
-    st = sn.query(st).filter(State.name.like("%a%")).order_by(State.id).all()
+    stc = State
+    st = sn.query(stc).filter(State.name.like("%a%")).order_by(State.id).all()
     for state in st:
         sn.delete(state)
         sn.commit()
