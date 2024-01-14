@@ -12,7 +12,9 @@ if __name__ == "__main__" and len(sys.argv) == 4:
                           port=3306, user=user,
                           passwd=passw, db=db)
     cur = con.cursor()
-    q = "SELECT * FROM states WHERE name LIKE UPPER('n%') ORDER BY id;"
+    q = """SELECT * FROM states WHERE
+           name COLLATE utf8mb4_bin LIKE 'N%' ORDER BY id;"""
+
     cur.execute(q)
     row = cur.fetchone()
     while row:
