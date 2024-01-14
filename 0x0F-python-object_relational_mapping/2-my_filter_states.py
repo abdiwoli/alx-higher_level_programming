@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""search stste """
+""" search stste """
 import MySQLdb
 import sys
 
@@ -13,7 +13,8 @@ if __name__ == "__main__" and len(sys.argv) == 5:
                           port=3306, user=user,
                           passwd=passw, db=db)
     cur = con.cursor()
-    query = "SELECT * FROM states WHERE name = {} ORDER BY id;".format("%s")
+    query = "SELECT * FROM states WHERE name COLLATE utf8mb4_bin = %s ORDER BY id;"
+
     cur.execute(query, (search,))
     row = cur.fetchone()
     while row:
