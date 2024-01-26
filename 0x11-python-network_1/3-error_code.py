@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-0;276;0c""" what is my ip"""
+""" what is my ip"""
 from sys import argv
 from urllib import request, error
 
