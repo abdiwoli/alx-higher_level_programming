@@ -1,0 +1,14 @@
+#!/usr/bin/python3
+""" post request with paramater """
+from sys import argv
+import requests
+
+
+def send_post(url, email):
+    data = {'email': email}
+    res = requests.post(url, data=data)
+    print(res.text)
+
+
+if __name__ == "__main__":
+    send_post(argv[1], argv[2])
