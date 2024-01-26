@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-""" what is my ip"""
+0;276;0c""" what is my ip"""
 from sys import argv
-from urllib import request
+from urllib import request, error
 
 if __name__ == "__main__":
     try:
@@ -9,5 +9,5 @@ if __name__ == "__main__":
             contb = fetch.read()
             conts = contb.decode("ascii")
             print(conts)
-    except HTTPError as e:
+    except error.HTTPError as e:
         print("Error code: {}".format(e.code))
