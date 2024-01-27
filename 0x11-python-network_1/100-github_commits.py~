@@ -1,0 +1,24 @@
+#!/usr/bin/python3
+""" github commits"""
+import requests
+from sys import argv
+
+
+def get_commits(rname, oname):
+    url = f"https://api.github.com/repos/{oname}/{rname}/commits"
+    req = requests.get(url)
+    commits = req.json()
+    try:
+        for i in range(10):
+            print("{}: {}".format(
+                commits[i].get("sha"),
+                commits[i].get("commit").get("author").get("name")))
+    except IndexError:
+        pass
+if __name__ == "__main__":
+    if len(argv) != 3:
+        print("Usage: python script_name.py <REPO_NAME> <OWNER_NAME>")
+    else:
+        rname = argv[1]
+        oname = argv[2]
+        get_commits(rname, oname)
