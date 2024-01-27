@@ -19,7 +19,7 @@ def send_post(q):
 
 if __name__ == "__main__":
     if len(argv) == 2:
-        q = argv[1]
+        send_post(q)
     else:
-        q = ""
-    send_post(q)
+        print("No result")
+    
