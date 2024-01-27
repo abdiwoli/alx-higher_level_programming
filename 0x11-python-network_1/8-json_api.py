@@ -9,7 +9,7 @@ def send_post(q):
     res = requests.post("http://0.0.0.0:5000/search_user", data=data)
     try:
         jsn = res.json()
-        if jsn == "{}":
+        if len(jsn) == 0:
             print("No result")
         else:
             print("[{}] {}".format(jsn.get("id"), jsn.get("name")))
@@ -19,7 +19,7 @@ def send_post(q):
 
 if __name__ == "__main__":
     if len(argv) == 2:
+        q = argv[1]
         send_post(q)
     else:
         print("No result")
-    
