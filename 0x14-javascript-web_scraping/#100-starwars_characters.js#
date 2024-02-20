@@ -6,4 +6,3 @@ require('request')(url, (err, response) => {
     const result = JSON.parse(response.body).characters;
   }
 });
-
