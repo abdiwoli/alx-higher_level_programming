@@ -1,0 +1,14 @@
+#!/usr/bin/node
+require('https').get(process.argv[2], (response) => {
+  console.log('code:', response.statusCode);
+  let data = '';
+  response.on('data', (chnk) => {
+    data += chnk;
+  });
+
+  // response.on('end', () => {
+  // console.log(data);
+  // });
+}).on('error', (error) => {
+  console.error(`Error making GET request: ${error.message}`);
+});
