@@ -1,0 +1,13 @@
+#!/usr/bin/node
+const url = process.argv[2];
+
+require('request')(url, (err, response) => {
+  if (!err) {
+    const result = JSON.parse(response.body).results;
+    const count = result.reduce((count, film) => {
+      return film.characters.find(character => character.endsWith('/18/')) ? count + 1 : count;
+    }, 0);
+
+    console.log(count);
+  }
+});
