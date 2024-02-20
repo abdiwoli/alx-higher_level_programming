@@ -1,6 +1,8 @@
 #!/usr/bin/node
-require('https').get(process.argv[2], (response) => {
-  console.log(`code: ${response.statusCode}`);
-}).on('error', (error) => {
-  console.error(`Error making GET request: ${error.message}`);
+require('request')(process.argv[2], (err, response) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('code: ' + response.statusCode);
+  }
 });
