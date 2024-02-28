@@ -1,0 +1,12 @@
+$(document).ready(function() {
+    $('#btn_translate').click(function() {
+        var languageCode = $('#language_code').val();
+        console.log('Language Code:', languageCode);
+        $.get(`https://www.fourtonfish.com/hellosalut/hello/?lang=${languageCode}`, function(data) {
+            console.log('API Response:', data);
+            $('#hello').text(data.hello);
+        }).fail(function(error) {
+            console.error('Error fetching translation:', error);
+        });
+    });
+});
